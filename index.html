@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Geospatial Partitioning of Open Transit Data</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style type="text/css">
+			.reveal blockquote {
+				position: relative;
+			    padding-left: 1em;
+			 	border-left: 0.2em solid #333333;
+			  	font-weight: 100;
+			  	width: 80%;
+			   	text-align: left;
+			   	font-size: 0.7em;
+			   	box-shadow: none;
+			} 
+			blockquote::before {
+		      content: '\201C';
+		      font-family: 'Sanchez';
+		      color: #333333;
+		   	}
+		   	blockquote::after {
+		      content: '\201D';
+		   	}
+
+			.container{
+			    display: flex;
+			}
+			.col{
+			    flex: 1;
+			}
+			.ccenter {
+			  margin: auto;
+			  width: 50%;
+			  padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>
+						Geospatial Partitioning of Open Transit Data
+					</h3>
+					<p style="font-size: 0.7em">
+						<strong>Harm Delva</strong>, Julián Andrés Rojas, Pieter-Jan Vandenberghe, Pieter Colpaert, and Ruben Verborgh
+					</p>
+					<p style="font-size: 0.7em">
+						 IDLab, Ghent University – imec
+					</p>
+				</section>
+				<section>
+					<h3>
+						using open transit data
+					</h3>
+					<div class="container">
+						<div class="col ccenter" style="text-align: left">
+							
+							<ul style="list-style-type:none;">
+								<li>Would you rather</li>
+								<li>interface with 4 APIs, or</li>
+								<li>parse GBs of CSV files?</li>
+							</ul>
+
+						</div>
+						<div class="col">
+							<img src="./img/gtfs.svg" style="border: none; box-shadow: none;"/>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Linked Connections
+					</h3>
+					<div class="col">
+						<img src="./img/lc.svg" style="border: none; box-shadow: none; width: 75%"/>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Demand Varies by Region
+					</h3>
+					<div class="container">
+						<div class="col">
+							<img src="./img/query_frequencies.png" style="border: none; box-shadow: none;"/>
+							Where people want to go
+						</div>
+						<div class="col">
+							<img src="./img/connection_frequencies.png" style="border: none; box-shadow: none;"/>
+							Where the buses are
+						</div>
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li style="list-style-type: none;">Context</li>
+						<li><strong>Publishing the data</strong></li>
+						<li style="list-style-type: none;">Fragmenting the data</li>
+						<li style="list-style-type: none;">Findings</li>
+						<li style="list-style-type: none;">Takeaways</li>
+					</ul>
+				</section>
+				<section>
+					<h3>
+						Sets of Stops are Rigid
+					</h3>
+					<img src="./img/unlabeled.svg" style="border: none; box-shadow: none;"/>
+					<p style="margin: 0">
+						What if a new stop is added?
+					</p>
+					<p class="fragment roll-in" style="margin: 0">
+						Changes are needed
+					</p>
+				</section>
+				<section>
+					<h3>
+						Let users classify the stops
+					</h3>
+					<div class="col">
+						<img src="./img/labeled.svg" style="border: none; box-shadow: none;"/>
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li style="list-style-type: none;">Context</li>
+						<li style="list-style-type: none;">Publishing the data</li>
+						<li><strong>Fragmenting the data</strong></li>
+						<li style="list-style-type: none;">Findings</li>
+						<li style="list-style-type: none;">Takeaways</li>
+					</ul>
+				</section>
+				<section>
+					<h3>
+						Voronoi diagrams
+					</h3>
+					<div class="col">
+						<img src="./img/voronoi.svg" style="border: none; box-shadow: none; width: 50%"/>
+					</div>
+				</section>
+				<section>
+					<h3>
+						k-means
+					</h3>
+					<div class="col">
+						<img src="./img/kmeans.svg" style="border: none; box-shadow: none; width: 84%"/>
+					</div>
+				</section>
+				<section>
+					<h3>
+						METIS
+					</h3>
+					<div class="col">
+						<img src="./img/metis.svg" style="border: none; box-shadow: none; width: 84%"/>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Voronoi cells around hubs
+					</h3>
+					<div class="col">
+						<img src="./img/hub.svg" style="border: none; box-shadow: none; width: 84%"/>
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li style="list-style-type: none;">Context</li>
+						<li style="list-style-type: none;">Publishing the data</li>
+						<li style="list-style-type: none;">Fragmenting the data</li>
+						<li><strong>Findings</strong></li>
+						<li style="list-style-type: none;">Takeaways</li>
+					</ul>
+				</section>
+				<section>
+					<h3>
+						Setup
+					</h3>
+					<ul>
+						<li>Client-side route planning</li>
+						<li>3 methods + baseline</li>
+						<li>4, 8, 16, 32 partitions</li>
+						<li>5000 actual queries</li>
+						<li>3 metrics</li>
+					</ul>
+				</section>
+				<section>
+					<h3>
+						Downloaded Data
+					</h3>
+					<div class="container">
+						<div class="col ccenter" style="text-align: left">
+							Just a few % difference
+						</div>
+						<div class="col">
+							<img src="./img/boxen_method_downloaded.svg" style="border: none; box-shadow: none;"/>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Execution Times
+					</h3>
+					<div class="container">
+						<div class="col ccenter" style="text-align: left">
+							Complex shapes are hard to use
+						</div>
+						<div class="col">
+							<img src="./img/boxen_method_elapsed.svg" style="border: none; box-shadow: none;"/>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Execution Times
+					</h3>
+					<div class="container">
+						<div class="col ccenter" style="text-align: left">
+							More clusters is not better
+						</div>
+						<div class="col">
+							<img src="./img/boxen_clusters_elapsed.svg" style="border: none; box-shadow: none;"/>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Cache hit rates
+					</h3>
+					<div class="col">
+						<img src="./img/boxen_warm_cache.svg" style="border: none; box-shadow: none; width: 66%"/>
+					</div>
+
+					What's happening to k-means?
+				</section>
+				<section>
+					It doesn't matter how you partition your data,
+					<br>
+					just do it.
+
+					<p style="font-size: 0.7em; padding-top: 2em">
+						<a href="https://hdelva.be/slides/icwe2020/">hdelva.be/slides/icwe2020</a>
+						<br>
+						<a href="http://hdelva.be/articles/geospatial-linked-connections/">hdelva.be/articles/geospatial-linked-connections</a>
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				transition: 'none',
+				slideNumber: true,
+				controls: false,
+				history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/math/math.js', async: true }
+				],
+				math: {
+					"HTML-CSS": {
+						mtextFontInherit: true
+					}
+				},
+			});
+		</script>
+	</body>
+</html>

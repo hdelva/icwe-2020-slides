@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Geospatial Partitioning of Open Transit Data</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style type="text/css">
+			.reveal blockquote {
+				position: relative;
+			    padding-left: 1em;
+			 	border-left: 0.2em solid #333333;
+			  	font-weight: 100;
+			  	width: 80%;
+			   	text-align: left;
+			   	font-size: 0.7em;
+			   	box-shadow: none;
+			} 
+			blockquote::before {
+		      content: '\201C';
+		      font-family: 'Sanchez';
+		      color: #333333;
+		   	}
+		   	blockquote::after {
+		      content: '\201D';
+		   	}
+
+			.container{
+			    display: flex;
+			}
+			.col{
+			    flex: 1;
+			}
+			.ccenter {
+			  margin: auto;
+			  width: 50%;
+			  padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>
+						Geospatial Partitioning of Open Transit Data
+					</h3>
+					<p style="font-size: 0.7em">
+						<strong>Harm Delva</strong>, Julián Andrés Rojas, Pieter-Jan Vandenberghe, Pieter Colpaert, and Ruben Verborgh
+					</p>
+					<p style="font-size: 0.7em">
+						 IDLab, Ghent University – imec
+					</p>
+				</section>
+				<section>
+					<h3>
+						Sets of Stops are Rigid
+					</h3>
+					<img src="./img/unlabeled.svg" style="border: none; box-shadow: none;"/>
+				</section>
+				<section>
+					<h3>
+						Let users classify the stops
+					</h3>
+					<div class="col">
+						<img src="./img/labeled.svg" style="border: none; box-shadow: none;"/>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Setup
+					</h3>
+					<ul>
+						<li>Client-side route planning</li>
+						<li>12 partitionings + baseline</li>
+						<li>5000 actual queries</li>
+						<li>3 metrics</li>
+					</ul>
+				</section>
+				<section>
+					It doesn't matter how you partition your data,
+					<br>
+					just do it.
+
+					<p style="font-size: 0.7em; padding-top: 2em">
+						<a href="https://hdelva.be/slides/icwe2020/">hdelva.be/slides/icwe2020</a>
+						<br>
+						<a href="http://hdelva.be/articles/geospatial-linked-connections/">hdelva.be/articles/geospatial-linked-connections</a>
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				transition: 'none',
+				slideNumber: true,
+				controls: false,
+				history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/math/math.js', async: true }
+				],
+				math: {
+					"HTML-CSS": {
+						mtextFontInherit: true
+					}
+				},
+			});
+		</script>
+	</body>
+</html>
